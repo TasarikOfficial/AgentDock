@@ -1,0 +1,13 @@
+name: Bug report
+description: Help us make AgentDock more reliable.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    attributes: { label: What happened?, description: Include the expected and actual behavior. }
+    validations: { required: true }
+  - type: textarea
+    attributes: { label: Reproduction steps }
+    validations: { required: true }
+  - type: input
+    attributes: { label: Environment, placeholder: "macOS 26, Node 22, AgentDock 0.1.0" }
