@@ -12,7 +12,7 @@
 
 AgentDock is a local-first control plane for the AI tools developers already use. Choose an agent, attach context, run a task, and understand what happened without juggling terminals and dashboards.
 
-> **Alpha preview:** the interface and local demo workflow are working. Real provider process adapters are the next milestone; the UI does not pretend to execute a provider yet.
+> **Alpha preview:** real local streaming adapters for Ollama and Codex CLI are included. Claude Code and Gemini CLI are visible roadmap adapters and are clearly marked unavailable.
 
 ## Why AgentDock?
 
@@ -24,7 +24,7 @@ AgentDock is a local-first control plane for the AI tools developers already use
 
 ## Live alpha
 
-The current release includes a responsive dashboard, agent switching, runnable simulated tasks, persisted history, a command palette (`⌘ K` / `Ctrl K`), usage surfaces, mobile layout, CI, and community templates.
+The current release includes real Ollama chat streaming, Codex CLI execution, live terminal logs, run details, stop/retry, copy/export, changed-file summaries, persisted history, responsive layouts, CI, and community templates.
 
 ## Quick start
 
@@ -36,6 +36,8 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+AgentDock automatically checks for Ollama at `127.0.0.1:11434` and for the `codex` executable in your PATH. No API key is stored by AgentDock. For Codex, choose a valid local project path before starting a run. For Ollama, install the `qwen3` model or change the model name in `src/main.jsx`.
 
 ```bash
 npm run lint
