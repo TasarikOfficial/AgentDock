@@ -8,4 +8,5 @@ export default [
   reactHooks.configs.flat['recommended-latest'],
   reactRefresh.configs.vite,
   { files: ['**/*.{js,jsx}'], languageOptions: { ecmaVersion: 2020, globals: globals.browser, parserOptions: { ecmaVersion: 'latest', ecmaFeatures: { jsx: true }, sourceType: 'module' } }, rules: { 'react-refresh/only-export-components': 'off' } },
+  { files: ['server/**/*.js'], languageOptions: { globals: globals.node }, rules: { 'no-empty': ['error', { allowEmptyCatch: true }] } },
 ];
