@@ -7,8 +7,9 @@
 - [x] CI, contribution, security, and issue templates
 
 ## 0.2 — Real adapters
-- [ ] Codex, Claude Code, Gemini CLI, and Ollama process adapters
-- [ ] Streaming terminal output and cancellation
+- [x] Codex CLI and Ollama process adapters
+- [x] Streaming output, cancellation, run details, and export
+- [ ] Claude Code and Gemini CLI process adapters
 - [ ] Encrypted local secrets vault
 - [ ] Cross-platform desktop shell with Tauri
 
