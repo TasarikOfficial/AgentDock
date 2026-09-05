@@ -41,7 +41,7 @@ app.post('/api/run', async (req, res) => {
     const child = spawn('codex', ['exec', '--json', '--cd', projectPath, prompt], { cwd: projectPath, env: process.env }); jobs.set(id, child);
     child.stdout.on('data', chunk => send(res, { type: 'log', text: chunk.toString() })); child.stderr.on('data', chunk => send(res, { type: 'log', text: chunk.toString(), level: 'error' }));
     child.on('error', error => send(res, { type: 'error', text: error.code === 'ENOENT' ? 'Codex CLI is not installed or not in PATH.' : error.message }));
-    child.on('close', async code => { try { const { stdout } = await exec('git', ['diff', '--stat'], { cwd: projectPath }); if (stdout.trim()) send(res, { type: 'files', text: stdout }); } catch {} send(res, code === 0 ? { type: 'done' } : { type: 'error', text: `Codex exited with code ${code}.` }); jobs.delete(id); res.end(); });
+    child.on('close', async code => { try { const { stdout } = await exec('git', ['diff', '--no-color'], { cwd: projectPath, maxBuffer: 2_000_000 }); if (stdout.trim()) send(res, { type: 'files', text: stdout }); } catch {} send(res, code === 0 ? { type: 'done' } : { type: 'error', text: `Codex exited with code ${code}.` }); jobs.delete(id); res.end(); });
     return;
   }
   send(res, { type: 'error', text: `${provider} adapter is not available yet. Use Codex or Ollama.` }); res.end();
