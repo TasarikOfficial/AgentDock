@@ -1,0 +1,11 @@
+name: Feature request
+description: Propose an improvement with a clear use case.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes: { label: Problem, description: What developer problem should AgentDock solve? }
+    validations: { required: true }
+  - type: textarea
+    attributes: { label: Proposed solution }
+    validations: { required: true }
